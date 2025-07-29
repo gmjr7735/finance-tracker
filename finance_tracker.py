@@ -449,7 +449,7 @@ class ReportingAndAnalysis:
 
     def export_analysis(self):
         """
-        Export various financial summaries and analyses to 'Analysis.tsv'.
+        Export various financial summaries and analyses to 'analysis.tsv'.
         """
         self._sync_transactions()
         monthly_net_savings_txns = self.monthly_net_savings()
@@ -460,7 +460,7 @@ class ReportingAndAnalysis:
         totals_each_income_category_txns = self.totals_each_income_category()
         totals_each_expense_category_txns = self.totals_each_expense_category()
 
-        with open("Analysis.tsv", "w", newline="") as csv_file:
+        with open("analysis.tsv", "w", newline="") as csv_file:
             csv_writer = csv.writer(csv_file, delimiter="\t")
             csv_writer.writerow(
                 ["Current Balance:", self.tracker.calc_current_balance()]
@@ -535,7 +535,7 @@ class ReportingAndAnalysis:
 
     def export_filters(self, category, date1, date2=None):
         """
-        Export various filters based on category and/or date range to 'Filter.tsv'.
+        Export various filters based on category and/or date range to 'filter.tsv'.
 
         Args:
             category (str): Transaction category to filter.
@@ -551,7 +551,7 @@ class ReportingAndAnalysis:
             date1, date2, category
         )
 
-        with open("Filter.tsv", "w", newline="") as csv_file:
+        with open("filter.tsv", "w", newline="") as csv_file:
             csv_writer = csv.writer(csv_file, delimiter="\t")
             csv_writer.writerow([f"Transactions filter: {category}"])
 
